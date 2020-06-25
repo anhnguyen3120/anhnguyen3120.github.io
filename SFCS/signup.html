@@ -18,6 +18,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script defer src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.15.1/firebase-database.js"></script>
+    <script defer src="./init-firebase.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -31,10 +34,11 @@
   </head>
 
   <body>
+      
     <header>
       <div class="ui menu">
         <div class="header item">
-          <a href="index.html">HCMUT Smart Food Court System</a>
+            <a href="index.html">HCMUT Smart Food Court System</a>
         </div>
         <div class="ui pointing dropdown link item">
           <span class="text">Thực đơn</span>
@@ -127,7 +131,7 @@
         </a>
         <div class="right menu">
           <div class="item">
-            <a class="ui primary button" href="signup.html">
+            <a class="ui primary button">
               Tạo tài khoản
             </a>
           </div>
@@ -139,29 +143,46 @@
         </div>
       </div>
     </header>
-    <div>
-      <div class="ui vertical menu">
-        <a class="active teal item">
-          Trạng thái hiện tại
-        </a>
-        <a class="item">
-          Đồ ăn
-          <div class="ui label">15</div>
-        </a>
-        <a class="item">
-          Thức uống
-          <div class="ui label">12</div>
-        </a>
-        <div class="item">
-          <div class="ui transparent icon input">
-            <input type="text" placeholder="Tìm món ăn..." />
-            <i class="search icon"></i>
-          </div>
-        </div>
-      </div>
-      <h1 style="text-align: center;">
-        HỆ THỐNG ĐẶT ĐỒ ĂN THÔNG MINH <br />SMART FOOD COURT SYSTEM <br />
-      </h1>
+<h1 style="text-align: center;">Đăng ký thành viên</h1>
+<form class="ui form segment">
+  <p>Hãy nhập thông tin của bạn</p>
+  <div class="two fields">
+    <div class="field">
+      <label>Họ và tên</label>
+      <input placeholder="Tên của bạn" name="name" type="text">
+    </div>
+    <div class="field">
+      <label>Nghề nghiệp</label>
+      <select class="ui dropdown" name="job">
+        <option value="">Nghề nghiệp</option>
+        <option value="student">Học sinh, sinh viên</option>
+        <option value="teacher">Giảng viên</option>
+        <option value="other">Khác</option>
+      </select>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Tên tài khoản</label>
+      <input placeholder="Nhập tài khoản" name="username" type="text">
+    </div>
+    <div class="field">
+      <label>Mật khẩu</label>
+      <input placeholder="Nhập mật khẩu"type="password" name="password">
+    </div>
+  </div>
+  <div class="inline field">
+    <div class="ui checkbox">
+      <input type="checkbox" name="terms">
+      <label>Tôi đồng ý với điều khoản sử dụng dịch vụ này!</label>
+    </div>
+  </div>
+  <div class="ui primary submit button">Submit</div>
+  <div class="ui error message"></div>
+</form>
+    <!-- Previously loaded Firebase SDKs -->
+
+  <!-- Initialize Firebase -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <script src="modules.js"></script>
   </body>

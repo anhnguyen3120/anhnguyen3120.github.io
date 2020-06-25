@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="SFCS" />
+    <meta name="author" content="Nguyen Hoang" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SFCS</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.15.1/firebase-database.js"></script>
+    <script defer src="./init-firebase.js"></script>
+    <script defer>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCvBLkgyUORvfpEs1YhZlHPwsO481lAWgk",
+        authDomain: "sfcs-866bb.firebaseapp.com",
+        databaseURL: "https://sfcs-866bb.firebaseio.com",
+        projectId: "sfcs-866bb",
+        storageBucket: "sfcs-866bb.appspot.com",
+        messagingSenderId: "967002241619",
+        appId: "1:967002241619:web:85fb6534795f34d44aa4a6",
+        measurementId: "G-J23VC1ERNX"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <style>
+      body *{
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Đăng ký thành viên</h1>
+    <form class="ui form segment" action='value'>
+        <p>Hãy nhập thông tin của bạn</p>
+        <div class="two fields">
+          <div class="field">
+            <label>Họ và tên</label>
+            <input placeholder="Tên của bạn" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Nghề nghiệp</label>
+            <select class="ui dropdown" name="job">
+              <option value="">Nghề nghiệp</option>
+              <option value="student">Học sinh, sinh viên</option>
+              <option value="teacher">Giảng viên</option>
+              <option value="other">Khác</option>
+            </select>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Tên tài khoản</label>
+            <input placeholder="Nhập tài khoản" name="username" type="text">
+          </div>
+          <div class="field">
+            <label>Mật khẩu</label>
+            <input placeholder="Nhập mật khẩu"type="password" name="password">
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms">
+            <label>Tôi đồng ý với điều khoản sử dụng dịch vụ này!</label>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+
+
+    <div>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+         /* firebase.auth().onAuthStateChanged(user => { });
+         firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+         firebase.messaging().requestPermission().then(() => { });
+         firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { }); */
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="modules.js"></script>
+</body>
+</html>
+
